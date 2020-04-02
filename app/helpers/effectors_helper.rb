@@ -1,0 +1,2 @@
+module EffectorsHelper
+end

@@ -1,0 +1,32 @@
+.side-bar{
+  height: 100%;
+  width: 250px;
+  background-color: #003a66;
+  &__user-info{
+    color: hsl(206, 44%, 66%);
+    height: 150px;
+    text-align: center;
+    padding-top: 20px;
+    &__name{
+      font-size: 25px;
+    }
+    &__point{
+      font-size: 20px;
+    }
+    &__icon{
+      &__link{
+        text-decoration: none;
+        &__btn{
+          text-decoration: none;
+          font-size: 20px;
+          margin: 10px 15px;
+          color: hsl(206, 44%, 66%);
+        }
+        &__btn:hover{
+          font-size: 25px;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.header-list
+  .header-list__left
+    %h.header-list__left__logo
+      エフェクター館
+  .header-list__right
+    %ul.header-list__right__info-list
+      %li.header-list__right__info-list__info
+        = link_to "#", class: "header-list__right__info-list__info__link" do
+          当サイトの概要
+      %li.header-list__right__info-list__info
+        = link_to "#", class: "header-list__right__info-list__info__link" do
+          利用方法
+      %li.header-list__right__info-list__info
+        = link_to "#", class: "header-list__right__info-list__info__link" do
+          初めての方はこちら
+    .header-list__right__btns
+      = link_to "#", class: "header-list__right__btns__link" do
+        .header-list__right__btns__link__btn
+          ログイン
+      = link_to "#", class: "header-list__right__btns__link" do
+        .header-list__right__btns__link__btn
+          新規登録
+

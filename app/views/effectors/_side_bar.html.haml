@@ -1,0 +1,11 @@
+.side-bar
+  .side-bar__user-info
+    %p.side-bar__user-info__name
+      宮田 涼平
+    %p.side-bar__user-info__point
+      30 point
+    .side-bar__user-info__icon
+      = link_to "#", class: "side-bar__user-info__icon__link" do
+        = icon('fas', 'shopping-cart',  class: "side-bar__user-info__icon__link__btn")
+      = link_to "#", class: "side-bar__user-info__icon__link" do
+        = icon('fas', 'user-cog',  class: "side-bar__user-info__icon__link__btn")

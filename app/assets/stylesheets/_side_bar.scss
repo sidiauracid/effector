@@ -2,6 +2,7 @@
   height: 100%;
   width: 250px;
   background-color: #003a66;
+  text-align: center;
   &__user-info{
     color: hsl(206, 44%, 66%);
     height: 150px;
@@ -29,4 +30,35 @@
       }
     }
   }
+  &__user-effectors{
+    font-size: 25px;
+    &__link{
+      text-decoration: none;
+      color: #c9e2f7;
+    }
+    &__link:hover{
+      color: white;
+    }
+  }
+  &__effectors{
+    font-size: 20px;
+    margin-top: 10px;
+    color: #c9e2f7;
+    &__link:hover{
+      color: white;
+    }
+    &__genre{
+      font-size: 15px;
+      list-style: none;
+      margin-top: 20px;
+      &__link{
+        text-decoration: none;
+        color: #7aa2c2;
+      }
+      &__link:hover{
+        color: white;
+      }
+    }
+  }
+
 }

@@ -1,0 +1,34 @@
+.index{
+  display: flex;
+  height: calc(100% - 100px);
+}
+.boards{
+  height: 100%;
+  width: calc(100% - 250px);
+  overflow: scroll;
+  padding-top: 50px;
+  background-color: #c3ddf1;
+  &__link{
+    text-decoration: none;
+  }
+  &__board{
+    width: 80%;
+    // height: 600px;
+    margin: auto;
+    margin-bottom: 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 550px 30px 20px 30px;
+    &__title{
+      background-color: gray;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+    &__name{
+      background-color: gray;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+  }
+}

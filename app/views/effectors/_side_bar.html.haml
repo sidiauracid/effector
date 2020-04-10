@@ -1,49 +1,55 @@
 .side-bar
-  .side-bar__user-info
-    %p.side-bar__user-info__name
-      宮田 涼平
-    %p.side-bar__user-info__point
-      30 point
-    .side-bar__user-info__icon
-      = link_to "#", class: "side-bar__user-info__icon__link" do
-        = icon('fas', 'shopping-cart',  class: "side-bar__user-info__icon__link__btn")
-      = link_to "#", class: "side-bar__user-info__icon__link" do
-        = icon('fas', 'user-cog',  class: "side-bar__user-info__icon__link__btn")
-  %h.side-bar__user-effectors
-    = link_to "#", class: "side-bar__user-effectors__link" do
+  - if user_signed_in?
+    .side-bar__user-info
+      %p.side-bar__user-info__name
+        = current_user.name
+      %p.side-bar__user-info__point
+        = current_user.point
+        pt
+      .side-bar__user-info__icon
+        = link_to "#", class: "side-bar__user-info__icon__link" do
+          = icon('fas', 'shopping-cart',  class: "side-bar__user-info__icon__link__btn")
+        = link_to "#", class: "side-bar__user-info__icon__link" do
+          = icon('fas', 'user-cog',  class: "side-bar__user-info__icon__link__btn")
+  - else
+    = link_to new_user_registration_path, class: "registration" do
+      .registration__btn
+        新規登録はこちら
+  .side-bar__user-effectors
+    = link_to boards_path , class: "side-bar__user-effectors__link" do
       みんなのボード
   %ul.side-bar__effectors
     エフェクターの種類
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: ""}}
       全て表示
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "1"}}
       歪み系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "2"}}
       モジュレーション系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "3"}}
       空間系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "4"}}
       ダイナミクス系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "5"}}
       フィルター系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "6"}}
       ハーモニー系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "7"}}
       アンプ系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "8"}}
       ボリューム系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "9"}}
       回路系
   %li.side-bar__effectors__genre
-    = link_to "#", class: "side-bar__effectors__genre__link" do
+    %btn.side-bar__effectors__genre__link{data: {genre: "10"}}
       配線類

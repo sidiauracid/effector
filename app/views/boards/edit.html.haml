@@ -1,0 +1,10 @@
+.form
+  = render "side_bar"
+  .form-back
+    - if user_signed_in? && current_user.id == @board.user.id
+      .form-area
+        %h3.form-area__name
+          編集フォーム
+        = render "form"
+    - else
+      無効なアクセスです

@@ -1,0 +1,16 @@
+.side-bar
+  - if user_signed_in?
+    .side-bar__user-info
+      %p.side-bar__user-info__name
+        = current_user.name
+      %p.side-bar__user-info__point
+        = current_user.point
+        pt
+  - else
+    = link_to new_user_registration_path, class: "registration" do
+      .registration__btn
+        新規登録はこちら
+  .side-bar__user-effectors
+    = link_to boards_path , class: "side-bar__user-effectors__link" do
+      みんなのボード
+  

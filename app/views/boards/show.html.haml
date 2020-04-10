@@ -1,0 +1,16 @@
+.show
+  = render "side_bar"
+  .main-board
+    .main-board__info
+      .main-board__info__image
+        %image{src: "#{@board.image}",class: "main-board__info__image__front"}
+      .main-board__info__detail
+        .main-board__info__detail__title
+          タイトル : #{@board.title}
+        .main-board__info__detail__text
+          詳細 : #{@board.text}
+        .main-board__info__detail__user
+          投稿者 : #{@board.user.name}
+        - if user_signed_in? && current_user.id == @board.user.id
+          = link_to edit_board_path(@board.id) do
+            編集する

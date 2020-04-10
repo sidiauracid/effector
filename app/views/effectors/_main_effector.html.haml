@@ -1,1 +1,43 @@
 .main
+  .main__list
+    - @effectors.each do |effector|
+      .main__list__effector{data: {genre: effector.genre.id}}
+        .main__list__effector__info
+          .main__list__effector__info__visual
+            %h.main__list__effector__info__visual__name
+              = effector.name
+            .main__list__effector__info__visual__image
+              %img{alt: "image1", class: "main__list__effector__info__visual__image__file", src: "#{- effector.image1}"}
+              %img{alt: "image2", class: "main__list__effector__info__visual__image__file", src: "#{- effector.image2}"}
+          .main__list__effector__info__text
+            %h.main__list__effector__info__text__genre
+              = effector.genre.genre
+            %h.main__list__effector__info__text__point
+              = effector.point 
+              pt
+            %br 
+            %h.main__list__effector__info__text__detail
+              = effector.text
+          .main__list__effector__info__btns
+            - if effector.youtube != nil
+              .main__list__effector__info__btns__video
+                %button.main__list__effector__info__btns__video__btn{onclick: "test(#{effector.youtube})"}
+                  動画を視聴
+            - if effector.link != nil
+              .main__list__effector__info__btns__official
+                = link_to "#{effector.link}", class: "main__list__effector__info__btns__official__btn" do
+                  .main__list__effector__info__btns__official__btn__text
+                    公式サイト
+            - if user_signed_in?  
+              .main__list__effector__info__btns__cart
+                = link_to create_cart_path, class: "main__list__effector__info__btns__cart__btn" do
+                  .main__list__effector__info__btns__cart__btn__text
+                    カートに入れる
+  .popup
+    .popup__content
+      .popup__content__youtube
+        %iframe(width="560" height="315" id = "youtube_test" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        -# - @effectors.youtube
+      .name
+      %button#close
+        閉じる

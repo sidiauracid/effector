@@ -1,12 +1,17 @@
 @import "reset";
 @import "modules/effectors";
-@import "index";
+@import "effectors/index";
 @import "header";
-@import "main_effector";
-@import "side_bar";
+@import "effectors/main_effector";
+@import "effectors/side_bar";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
+@import "modules/user";
+@import "boards/index";
+@import "boards/new";
+@import "boards/create";
+@import "boards/form";
+@import "boards/show";
 html{
   height: 100%;
   width: 100%;
@@ -15,4 +20,10 @@ html{
 body{
   height: 100%;
   width: 100%;
+}
+
+.header{
+  height: 100px;
+  width: 100%;
+  background-color: #005799;
 }

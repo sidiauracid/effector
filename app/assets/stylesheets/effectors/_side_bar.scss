@@ -30,6 +30,7 @@
       }
     }
   }
+
   &__user-effectors{
     font-size: 25px;
     &__link{
@@ -54,6 +55,7 @@
       &__link{
         text-decoration: none;
         color: #7aa2c2;
+        cursor: pointer;
       }
       &__link:hover{
         color: white;
@@ -62,3 +64,15 @@
   }
 
 }
+.registration{
+text-decoration: none;
+  &__btn{
+    height: 50px;
+    width: 190px;
+    border: 2px solid  #c9e2f7;
+    margin: 30px;
+    line-height: 50px;
+    color:  #c9e2f7;
+  }
+}
+  

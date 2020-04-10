@@ -6,7 +6,11 @@
     width: 250px;
     border-right: 1px solid #003a66;
     text-align: center;
+    &__link{
+      text-decoration: none;
+    }
     &__logo{
+      text-decoration: none;
       font-size: 25px;
       line-height: 100px;
       color: white;
@@ -36,6 +40,18 @@
     &__btns{
       display: flex;
       text-align: center;
+      &__tag{
+        line-height: 50px;
+        color: white;
+      }
+      &__name{
+        height: 30px;
+        width: 200px;
+        line-height: 50px;
+        margin-right: 50px;
+        color: white;
+        font-size: 20px;
+      }
       &__link{
         text-decoration: none;
         margin-right: 30px;

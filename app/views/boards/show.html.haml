@@ -5,12 +5,36 @@
       .main-board__info__image
         %image{src: "#{@board.image}",class: "main-board__info__image__front"}
       .main-board__info__detail
-        .main-board__info__detail__title
-          タイトル : #{@board.title}
-        .main-board__info__detail__text
-          詳細 : #{@board.text}
-        .main-board__info__detail__user
-          投稿者 : #{@board.user.name}
-        - if user_signed_in? && current_user.id == @board.user.id
-          = link_to edit_board_path(@board.id) do
-            編集する
+        .left
+          .main-board__info__detail__title
+            タイトル : #{@board.title}
+          .main-board__info__detail__text
+            詳細 : #{@board.text}
+          .main-board__info__detail__user
+            投稿者 :
+            = link_to user_path(@board.user_id), class: "main-board__info__detail__user__link" do
+              #{@board.user.name}
+        .right
+          - if user_signed_in? && current_user.id == @board.user.id
+            = link_to edit_board_path(@board.id), class: "right__edit"do
+              編集する
+            %br
+            =link_to board_path{@boaed.id},method: :delete, class: "right__delete" do
+              削除する
+      .container
+        - if current_user 
+          = form_for @comment,url: board_comments_path(@board.id) do |form| 
+            .container__text
+              = form.text_area :text, placeholder: "コメントする", rows: "2", class: "container__text__area"
+            .container__submit
+              = form.submit "SEND", class: "container__submit__btn"
+        - else 
+          %h
+            コメントの投稿には新規登録/ログインが必要です
+        .comments
+          -if @comments
+            %h4コメント一覧
+            - @comments.each do |comment|
+              = link_to comment.user.name, "/users/#{comment.user_id}", class: "comments__user"
+              = comment.text
+              %br

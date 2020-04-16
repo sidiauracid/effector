@@ -7,9 +7,9 @@
         = current_user.point
         pt
       .side-bar__user-info__icon
-        = link_to "#", class: "side-bar__user-info__icon__link" do
+        = link_to cart_path(current_user.id), class: "side-bar__user-info__icon__link" do
           = icon('fas', 'shopping-cart',  class: "side-bar__user-info__icon__link__btn")
-        = link_to "#", class: "side-bar__user-info__icon__link" do
+        = link_to edit_user_path(current_user.id), class: "side-bar__user-info__icon__link" do
           = icon('fas', 'user-cog',  class: "side-bar__user-info__icon__link__btn")
   - else
     = link_to new_user_registration_path, class: "registration" do

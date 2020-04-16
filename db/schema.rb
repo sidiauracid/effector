@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200410102152) do
+ActiveRecord::Schema.define(version: 20200415065211) do
 
   create_table "boards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 20200410102152) do
     t.datetime "updated_at",  null: false
     t.index ["effector_id"], name: "index_carts_on_effector_id", using: :btree
     t.index ["user_id"], name: "index_carts_on_user_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "board_id"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["board_id"], name: "index_comments_on_board_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "confirms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "effector_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["effector_id"], name: "index_confirms_on_effector_id", using: :btree
+    t.index ["user_id"], name: "index_confirms_on_user_id", using: :btree
   end
 
   create_table "effectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,5 +87,9 @@ ActiveRecord::Schema.define(version: 20200410102152) do
   add_foreign_key "boards", "users"
   add_foreign_key "carts", "effectors"
   add_foreign_key "carts", "users"
+  add_foreign_key "comments", "boards"
+  add_foreign_key "comments", "users"
+  add_foreign_key "confirms", "effectors"
+  add_foreign_key "confirms", "users"
   add_foreign_key "effectors", "genres"
 end

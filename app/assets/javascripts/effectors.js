@@ -4,12 +4,8 @@ $(function(){
     $('.popup').fadeOut();
     $('#youtube_test').attr('src', '');
   });
-  // $('#genre-1').on('click',function(){
-  //   $('.main__list').empty();
-  // });
 });
 function test(url){
-  // $('.name').val(name);
   $('#youtube_test').attr('src', url);
   $('.popup').attr('id','show').css('display', 'none').fadeIn();
 };
@@ -38,4 +34,30 @@ function search_filter(genre) {
       $(listItem).eq(i).addClass(hideClass);
     }
   }
+}
+function confirmCart(cart_id) {
+  console.log(cart_id);
+}
+
+function createCart(userId, effectorId) {
+  var param = {
+    user_id: userId,
+    effector_id: effectorId
+  }
+  ajaxRequest("api/carts",'post',param)
+}
+
+function ajaxRequest(url,type,data) {
+  $.ajax({
+    url: url,
+    type: type,
+    dataType: 'json',
+    data: data
+  })
+  .done(function() {
+    alert('商品をカートに入れました')
+  })
+  .fail(function() {
+    alert('error');
+  });
 }

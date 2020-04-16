@@ -1,16 +1,14 @@
 class CartsController < ApplicationController
 
-  def new
-    @cart = Cart.new
+  def show
+    @carts = Cart.where(user_id: params[:id])
+    num = params[:id]
+    @num = num.to_i
   end
 
-  def create
-    Cart.create(cart_params)
-    redirect_to root_path
+  def destroy
+    cart = Cart.find(params[:id])
+    cart.destroy
+    redirect_to cart_path(current_user.id)
   end
-
-  # private
-  # def cart_params
-  #   params.require(:cart).merge(user_id: current_user.id, effector_id: effector.id)
-  # end
 end

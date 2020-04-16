@@ -87,15 +87,15 @@ button {
             background-color: #7aa2c2;
             margin-top: 20px;
             &__btn{
-              text-decoration: none;
-              &__text{
-                height: 100%;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: white
-              }
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              background-color: #7aa2c2;
+              font-size: 15px;
+              cursor: pointer;
             }
           }
         }

@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+
+  def show
+    @boards = Board.where(user_id: params[:id])
+  end
+
   def edit
   end
 

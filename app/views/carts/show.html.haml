@@ -1,0 +1,7 @@
+.wrapper
+  = render "effectors/side_bar"
+  - if user_signed_in? && current_user.id == @num
+    = render "main_cart"
+  - else
+    無効なアクセスです
+    

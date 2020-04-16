@@ -1,0 +1,49 @@
+.main
+  .main__list
+    - if @carts.length == 0
+      カートに商品はありません
+      %br
+      = link_to root_path do
+        買い物を続ける
+    - else
+      - @carts.each do |cart|
+        .main__list__effector{data: {genre: cart.effector.genre.id}}
+          .main__list__effector__info
+            .main__list__effector__info__visual
+              %h.main__list__effector__info__visual__name
+                = cart.effector.name
+              .main__list__effector__info__visual__image
+                %img{alt: "image1", class: "main__list__effector__info__visual__image__file", src: "#{- cart.effector.image1}"}
+                %img{alt: "image2", class: "main__list__effector__info__visual__image__file", src: "#{- cart.effector.image2}"}
+            .main__list__effector__info__text
+              %h.main__list__effector__info__text__genre
+                = cart.effector.genre.genre
+              %h.main__list__effector__info__text__point
+                = cart.effector.point 
+                pt
+              %br 
+              %h.main__list__effector__info__text__detail
+                = cart.effector.text
+            .main__list__effector__info__btns
+              - if cart.effector.youtube != nil
+                .main__list__effector__info__btns__video
+                  %button.main__list__effector__info__btns__video__btn{onclick: "test(#{cart.effector.youtube})"}
+                    動画を視聴
+              - if cart.effector.link != nil
+                .main__list__effector__info__btns__official
+                  = link_to "#{cart.effector.link}", class: "main__list__effector__info__btns__official__btn" do
+                    .main__list__effector__info__btns__official__btn__text
+                      公式サイト
+              - if user_signed_in?  
+                .main__list__effector__info__btns__official
+                  = link_to "/carts/#{cart.id}", method: :delete, class: "main__list__effector__info__btns__official__btn" do
+                    .main__list__effector__info__btns__official__btn__text
+                      カートから削除する
+      = link_to "#", class: "confirm-btn",onclick: "confirmCart(#{@carts.ids})" do
+        購入を確定する
+      .popup
+        .popup__content
+          .popup__content__youtube
+            %iframe(width="560" height="315" id = "youtube_test" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+          %button#close
+            閉じる

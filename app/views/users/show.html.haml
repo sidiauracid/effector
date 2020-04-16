@@ -1,0 +1,10 @@
+.index
+  = render "effectors/side_bar"
+  .boards
+    - @boards.each do |board|
+      = link_to board_path(board.id), class: "boards__link" do
+        .boards__board{style: "background-image: url(#{ board.image});"}
+          .boards__board__title
+            = board.title
+          .boards__board__name
+            = board.user.name

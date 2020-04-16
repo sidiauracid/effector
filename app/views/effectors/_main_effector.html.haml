@@ -30,14 +30,11 @@
                     公式サイト
             - if user_signed_in?  
               .main__list__effector__info__btns__cart
-                = link_to create_cart_path, class: "main__list__effector__info__btns__cart__btn" do
-                  .main__list__effector__info__btns__cart__btn__text
-                    カートに入れる
+                %button.main__list__effector__info__btns__cart__btn{onclick: "createCart(#{current_user.id},#{effector.id})"}
+                  カートに入れる
   .popup
     .popup__content
       .popup__content__youtube
         %iframe(width="560" height="315" id = "youtube_test" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
-        -# - @effectors.youtube
-      .name
       %button#close
         閉じる
